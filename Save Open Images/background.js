@@ -1,7 +1,4 @@
-/*chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
-	alert(response);
-});*/
-function saveFile(url) {
+function saveFile(url) { // Saves the url it recieves.
   var filename = url.substring(url.lastIndexOf("/") + 1).split("?")[0];
   var xhr = new XMLHttpRequest();
   xhr.responseType = 'blob';
@@ -18,7 +15,6 @@ function saveFile(url) {
   xhr.send();
 }
 
-chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
+chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){ // Recieves url from popup.js.
 	saveFile(response);
-	//sendResponse("image saves successfully");
 });
