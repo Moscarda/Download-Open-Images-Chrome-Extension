@@ -3,7 +3,7 @@ function getUrls(){ // Checks all of the open tabs for pictures and download the
 		tabs.forEach(function(tab){ // For each open tab check if the url is a picture url and if so, send a message with the url to background.js.
 			if(isPic(tab.url)){
 				chrome.runtime.sendMessage(tab.url);
-				chrome.storage.sync.get({'closeOnSave': true, 'saveToDef': true}, function(items){ // Get values from option page.
+				chrome.storage.sync.get({'closeOnSave': true}, function(items){ // Get values from option page.
 					if(items.closeOnSave){ // If autoclose checked close open picture tabs.
 						chrome.tabs.remove(tab.id, function() { });
 					}

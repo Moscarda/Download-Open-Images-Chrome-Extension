@@ -1,13 +1,10 @@
 function save_options(){ // Saves current values to chrome.storage.
 	var CloseOnSaveButton = document.getElementById('CloseTab').checked;
     chrome.storage.sync.set({'closeOnSave': CloseOnSaveButton});
-	var saveToDefButton = document.getElementById('SaveLoc').checked;
-	chrome.storage.sync.set({'saveToDef': saveToDefButton});
 }
 function restore_options(){ // Recieves and shows the current chrome.storage values.
-	chrome.storage.sync.get({'closeOnSave': true, 'saveToDef': true}, function(items){
+	chrome.storage.sync.get({'closeOnSave': true}, function(items){
 		document.getElementById('CloseTab').checked = items.closeOnSave;
-		document.getElementById('SaveLoc').checked = items.saveToDef;
 	});
 }
 
