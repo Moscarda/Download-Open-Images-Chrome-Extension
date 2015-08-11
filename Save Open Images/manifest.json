@@ -4,6 +4,7 @@
 	"name": "Save Open Images",
 	"description": "When you click the extension's icon, it saves all open images tabs",
 	"version": "1.1",
+	"options_page": "options.html",
 	"browser_action": {
 		"default_icon": "icon.png",
 		"default_popup": "popup.html",
@@ -16,6 +17,7 @@
     "scripts": ["background.js"]
 	},
 	"permissions":[
+	"storage",
 	"activeTab",
 	"http://*/*",
 	"https://*/*",

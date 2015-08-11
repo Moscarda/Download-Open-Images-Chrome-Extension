@@ -7,7 +7,12 @@ function getUrls(){
 				//alert(tab.url);
 				//saveFile(tab.url);
 				chrome.runtime.sendMessage(tab.url);
-				chrome.tabs.remove(tab.id, function() { });
+				chrome.storage.sync.get({'closeOnSave': true, 'saveToDef': true}, function(items){
+					if(items.closeOnSave){
+						chrome.tabs.remove(tab.id, function() { });
+					}
+				});
+				//chrome.tabs.remove(tab.id, function() { });
 				/*chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
 					if(response == "image saves successfully"){
 						chrome.tabs.remove(tab.id, function() { });
@@ -22,7 +27,7 @@ function getUrls(){
 	});
 }
 function isPic(url){
-	if(url.match(".png")||url.match(".jpg")||url.match(".tif")||url.match(".gif")||url.match(".bmp")){
+	if(url.indexOf(".png") > -1||url.indexOf(".jpg") > -1||url.indexOf(".tif") > -1||url.indexOf(".gif") > -1||url.indexOf(".bmp") > -1){
 		return true;
 	}
 	return false;
