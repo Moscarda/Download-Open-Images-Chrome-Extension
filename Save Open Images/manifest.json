@@ -3,7 +3,7 @@
 	"manifest_version": 2,
 	"name": "Save Open Images",
 	"description": "When you click the extension's icon, it saves all open images tabs",
-	"version": "1.1",
+	"version": "1.0",
 	"options_page": "options.html",
 	"browser_action": {
 		"default_icon": "icon.png",
